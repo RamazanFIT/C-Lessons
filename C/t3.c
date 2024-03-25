@@ -1,39 +1,20 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <ctype.h>
-#include <string.h>
-
-enum Color {RED, GREEN, BLUE};
-enum Color2 {roma};
-
-// struct {
-//     unsigned int isRed : 1;
-//     unsigned int isGreen : 1;
-//     unsigned int isBlue : 1;
-// } status;
-
-struct status
-{
-    unsigned int age : 1;
-
-   
-};
-
 
 int main() {
+    FILE *file = freopen("example.txt", "w", stdout);
+    FILE *fileout = freopen("sh.txt", "r", stdin);
 
+    fseek(file, 1, SEEK_SET);
 
-    // enum Color a = RED;
+    char w[100];
+    scanf("%s", &w);
+    printf("%s", w);
+    if (file == NULL) {
+        perror("Ошибка при открытии файла");
+        return 1;
+    }
 
-    // enum Color2 b = roma;
-
-    struct status a;
-    a.age = 1;
-    printf("%d", a.age);
-    
-
-
-
-
+    printf("Текст, который будет записан в файл.\n");
+    fclose(file);
     return 0;
 }
